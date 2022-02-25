@@ -52,7 +52,7 @@ jobs:
           git diff --exit-code
 
       # cf. https://github.com/golangci/golangci-lint-action#how-to-use
-      - uses: golangci/golangci-lint-action@v2
+      - uses: golangci/golangci-lint-action@v3
         with:
           version: v1.43
           args: --sort-results --exclude-use-default=false --enable asciicheck,bodyclose,cyclop,dupl,durationcheck,errname,errorlint,exhaustive,exportloopref,forbidigo,forcetypeassert,funlen,gci,gochecknoinits,gocognit,goconst,gocritic,gocyclo,goerr113,gofmt,gofumpt,gomnd,goimports,goprintffuncname,gosec,ifshort,importas,makezero,misspell,nakedret,nestif,nilerr,nlreturn,noctx,nolintlint,prealloc,predeclared,promlinter,revive,rowserrcheck,sqlclosecheck,stylecheck,tagliatelle,testpackage,thelper,tparallel,unconvert,unparam,wastedassign,whitespace,wrapcheck,wsl
