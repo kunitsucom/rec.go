@@ -24,7 +24,7 @@ jobs:
     # cf. https://docs.github.com/en/free-pro-team@latest/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       # cf. https://github.com/actions/setup-go#usage
       - uses: actions/setup-go@v2
