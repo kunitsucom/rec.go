@@ -32,7 +32,7 @@ jobs:
           go-version: ^1.17
 
       # cf. https://github.com/actions/cache/blob/main/examples.md#go---modules
-      - uses: actions/cache@v2
+      - uses: actions/cache@v3
         id: cache
         with:
           path: |
