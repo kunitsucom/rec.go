@@ -60,7 +60,7 @@ jobs:
           go tool cover -func=./coverage.txt
 
       # cf. https://github.com/codecov/codecov-action#example-workflowyml-with-codecov-action
-      - uses: codecov/codecov-action@v2
+      - uses: codecov/codecov-action@v3
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           files: ./coverage.txt
