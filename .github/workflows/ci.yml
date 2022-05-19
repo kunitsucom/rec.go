@@ -50,7 +50,7 @@ jobs:
           git diff --exit-code
 
       # cf. https://github.com/golangci/golangci-lint-action#how-to-use
-      - uses: golangci/golangci-lint-action@v3.1.0
+      - uses: golangci/golangci-lint-action@v3.2.0
         with:
           version: latest
 
