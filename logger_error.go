@@ -34,8 +34,7 @@ const formattedNilString = "<nil>"
 
 // Print is alias of below:
 //
-//     Print(severity, err.Error(), rec.Error(err), rec.ErrorStacktrace(err))
-//
+//	Print(severity, err.Error(), rec.Error(err), rec.ErrorStacktrace(err))
 func (e *errorLogger) Print(severity Severity, err error, fields ...Field) *errorReturner {
 	var message string
 
@@ -52,8 +51,7 @@ func (e *errorLogger) Print(severity Severity, err error, fields ...Field) *erro
 
 // Fatal is alias of below:
 //
-//     Fatal(severity, err.Error(), rec.Error(err), rec.ErrorStacktrace(err))
-//
+//	Fatal(severity, err.Error(), rec.Error(err), rec.ErrorStacktrace(err))
 func (e *errorLogger) Fatal(severity Severity, err error, fields ...Field) {
 	var message string
 
@@ -70,8 +68,7 @@ func (e *errorLogger) Fatal(severity Severity, err error, fields ...Field) {
 
 // Panic is alias of below:
 //
-//     Panic(severity, err.Error(), rec.Error(err), rec.ErrorStacktrace(err))
-//
+//	Panic(severity, err.Error(), rec.Error(err), rec.ErrorStacktrace(err))
 func (e *errorLogger) Panic(severity Severity, err error, fields ...Field) {
 	var message string
 
@@ -88,8 +85,7 @@ func (e *errorLogger) Panic(severity Severity, err error, fields ...Field) {
 
 // Default is alias of below:
 //
-//     Default(err.Error(), rec.Error(err), rec.ErrorStacktrace(err))
-//
+//	Default(err.Error(), rec.Error(err), rec.ErrorStacktrace(err))
 func (e *errorLogger) Default(err error, fields ...Field) *errorReturner {
 	var message string
 
@@ -106,8 +102,7 @@ func (e *errorLogger) Default(err error, fields ...Field) *errorReturner {
 
 // Debug is alias of below:
 //
-//     Debug(err.Error(), rec.Error(err), rec.ErrorStacktrace(err))
-//
+//	Debug(err.Error(), rec.Error(err), rec.ErrorStacktrace(err))
 func (e *errorLogger) Debug(err error, fields ...Field) *errorReturner {
 	var message string
 
@@ -124,8 +119,7 @@ func (e *errorLogger) Debug(err error, fields ...Field) *errorReturner {
 
 // Info is alias of below:
 //
-//     Info(err.Error(), rec.Error(err), rec.ErrorStacktrace(err))
-//
+//	Info(err.Error(), rec.Error(err), rec.ErrorStacktrace(err))
 func (e *errorLogger) Info(err error, fields ...Field) *errorReturner {
 	var message string
 
@@ -142,8 +136,7 @@ func (e *errorLogger) Info(err error, fields ...Field) *errorReturner {
 
 // Notice is alias of below:
 //
-//     Notice(err.Error(), rec.Error(err), rec.ErrorStacktrace(err))
-//
+//	Notice(err.Error(), rec.Error(err), rec.ErrorStacktrace(err))
 func (e *errorLogger) Notice(err error, fields ...Field) *errorReturner {
 	var message string
 
@@ -160,8 +153,7 @@ func (e *errorLogger) Notice(err error, fields ...Field) *errorReturner {
 
 // Warning is alias of below:
 //
-//     Warning(err.Error(), rec.Error(err), rec.ErrorStacktrace(err))
-//
+//	Warning(err.Error(), rec.Error(err), rec.ErrorStacktrace(err))
 func (e *errorLogger) Warning(err error, fields ...Field) *errorReturner {
 	var message string
 
@@ -178,8 +170,7 @@ func (e *errorLogger) Warning(err error, fields ...Field) *errorReturner {
 
 // Error is alias of below:
 //
-//     Error(err.Error(), rec.Error(err), rec.ErrorStacktrace(err))
-//
+//	Error(err.Error(), rec.Error(err), rec.ErrorStacktrace(err))
 func (e *errorLogger) Error(err error, fields ...Field) *errorReturner {
 	var message string
 
@@ -196,8 +187,7 @@ func (e *errorLogger) Error(err error, fields ...Field) *errorReturner {
 
 // Critical is alias of below:
 //
-//     Critical(err.Error(), rec.Error(err), rec.ErrorStacktrace(err))
-//
+//	Critical(err.Error(), rec.Error(err), rec.ErrorStacktrace(err))
 func (e *errorLogger) Critical(err error, fields ...Field) *errorReturner {
 	var message string
 
@@ -214,8 +204,7 @@ func (e *errorLogger) Critical(err error, fields ...Field) *errorReturner {
 
 // Alert is alias of below:
 //
-//     Alert(err.Error(), rec.Error(err), rec.ErrorStacktrace(err))
-//
+//	Alert(err.Error(), rec.Error(err), rec.ErrorStacktrace(err))
 func (e *errorLogger) Alert(err error, fields ...Field) *errorReturner {
 	var message string
 
@@ -232,8 +221,7 @@ func (e *errorLogger) Alert(err error, fields ...Field) *errorReturner {
 
 // Emergency is alias of below:
 //
-//     Emergency(err.Error(), rec.Error(err), rec.ErrorStacktrace(err))
-//
+//	Emergency(err.Error(), rec.Error(err), rec.ErrorStacktrace(err))
 func (e *errorLogger) Emergency(err error, fields ...Field) *errorReturner {
 	var message string
 

@@ -1,10 +1,10 @@
 # rec.go - Simple JSON Logger
 
-[![pkg](https://pkg.go.dev/badge/github.com/rec-logger/rec.go)](https://pkg.go.dev/github.com/rec-logger/rec.go)
-[![goreportcard](https://goreportcard.com/badge/github.com/rec-logger/rec.go)](https://goreportcard.com/report/github.com/rec-logger/rec.go)
-[![workflow](https://github.com/rec-logger/rec.go/workflows/CI/badge.svg)](https://github.com/rec-logger/rec.go/tree/main)
-[![codecov](https://codecov.io/gh/rec-logger/rec.go/branch/main/graph/badge.svg?token=LUn3V3D61I)](https://codecov.io/gh/rec-logger/rec.go)
-[![sourcegraph](https://sourcegraph.com/github.com/rec-logger/rec.go/-/badge.svg)](https://sourcegraph.com/github.com/rec-logger/rec.go)
+[![pkg](https://pkg.go.dev/badge/github.com/kunitsuinc/rec.go)](https://pkg.go.dev/github.com/kunitsuinc/rec.go)
+[![goreportcard](https://goreportcard.com/badge/github.com/kunitsuinc/rec.go)](https://goreportcard.com/report/github.com/kunitsuinc/rec.go)
+[![workflow](https://github.com/kunitsuinc/rec.go/workflows/CI/badge.svg)](https://github.com/kunitsuinc/rec.go/tree/main)
+[![codecov](https://codecov.io/gh/kunitsuinc/rec.go/branch/main/graph/badge.svg?token=LUn3V3D61I)](https://codecov.io/gh/kunitsuinc/rec.go)
+[![sourcegraph](https://sourcegraph.com/github.com/kunitsuinc/rec.go/-/badge.svg)](https://sourcegraph.com/github.com/kunitsuinc/rec.go)
 
 rec.go is a lightweight and no dependencies simple JSON (NDJSON, JSONLines, JSONL) logger for Go.  
 
@@ -58,7 +58,7 @@ import (
 
     "golang.org/x/xerrors"
 
-    "github.com/rec-logger/rec.go"
+    "github.com/kunitsuinc/rec.go"
 )
 
 func main() {
@@ -95,7 +95,7 @@ import (
 
     "golang.org/x/xerrors"
 
-    "github.com/rec-logger/rec.go"
+    "github.com/kunitsuinc/rec.go"
 )
 
 func main() {
@@ -134,7 +134,7 @@ import (
 
     "golang.org/x/xerrors"
 
-    "github.com/rec-logger/rec.go"
+    "github.com/kunitsuinc/rec.go"
 )
 
 func main() {
@@ -173,7 +173,7 @@ import (
 
     "golang.org/x/xerrors"
 
-    "github.com/rec-logger/rec.go"
+    "github.com/kunitsuinc/rec.go"
 )
 
 func main() {
@@ -239,7 +239,7 @@ import (
 
     "golang.org/x/xerrors"
 
-    "github.com/rec-logger/rec.go"
+    "github.com/kunitsuinc/rec.go"
 )
 
 func main() {
@@ -283,7 +283,7 @@ import (
 
     "golang.org/x/xerrors"
 
-    "github.com/rec-logger/rec.go"
+    "github.com/kunitsuinc/rec.go"
 )
 
 func main() {
@@ -324,7 +324,7 @@ import (
     "log"
     "os"
 
-    "github.com/rec-logger/rec.go"
+    "github.com/kunitsuinc/rec.go"
 )
 
 func main() {

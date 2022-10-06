@@ -1,3 +1,3 @@
-module github.com/rec-logger/rec.go
+module github.com/kunitsuinc/rec.go
 
 go 1.17

@@ -123,14 +123,13 @@ func (l *Logger) AddCallerSkip(callerSkip int) *Logger {
 //
 // For example, for the following `rec.Logger`:
 //
-//     l := rec.Must(rec.New(os.Stderr)).With(rec.String("field", "added"))
-//     l.InfoLog("rec")
+//	l := rec.Must(rec.New(os.Stderr)).With(rec.String("field", "added"))
+//	l.InfoLog("rec")
 //
 // This will output a log like the following:
 //
-//     $ go run main.go
-//     {"timestamp":"...",...,"message":"rec","field":"added"}
-//
+//	$ go run main.go
+//	{"timestamp":"...",...,"message":"rec","field":"added"}
 func (l *Logger) With(fields ...Field) *Logger {
 	copied := l.Copy()
 

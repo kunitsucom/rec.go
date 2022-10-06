@@ -1,34 +1,31 @@
-REPO_ROOT := $(shell git rev-parse --show-toplevel)
-PRE_PUSH := ${REPO_ROOT}/.git/hooks/pre-push
+SHELL    := /usr/bin/env bash -Eeu -o pipefail
+GITROOT  := $(shell git rev-parse --show-toplevel || pwd || echo '.')
+PRE_PUSH := ${GITROOT}/.git/hooks/pre-push
 
 .DEFAULT_GOAL := help
 .PHONY: help
-help:  ## display this doc
+help: githooks ## display this help documents.
 	@grep -E '^[0-9a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-40s\033[0m %s\n", $$1, $$2}'
 
-.PHONY: setup
-setup:  ## setup tools
-	@./bin/setup.sh
-
-.PHONY: tidy
-tidy:
-	# tidy
-	go mod tidy
-	git diff --exit-code
+.PHONY: githooks
+githooks:  ## githooks をインストールします。
+	@[[ -f "${PRE_PUSH}" ]] || cp -ai "${GITROOT}/.githooks/pre-push" "${PRE_PUSH}"
 
 .PHONY: lint
-lint:  ## lint
+lint:  ## go mod tidy の後に golangci-lint を実行します。
+	# tidy
+	go mod tidy
+	git diff --exit-code go.mod
 	# lint
-	if ! command -v golangci-lint >/dev/null; then echo golangci-lint not found 1>&2; exit 1; fi
 	# cf. https://golangci-lint.run/usage/linters/
-	golangci-lint run --fix --sort-results
+	./.bin/golangci-lint run --fix --sort-results
 	git diff --exit-code
 
 .PHONY: test
-test:  ## test
+test: githooks ## go test を実行し coverage を出力します。
 	# test
-	COLOR=true go test -v -race -p=4 -parallel=8 -timeout=300s -cover -coverprofile=./coverage.txt .
+	go test -v -race -p=4 -parallel=8 -timeout=300s -cover -coverprofile=./coverage.txt .
 	go tool cover -func=./coverage.txt
 
 .PHONY: ci
-ci: setup tidy lint test ## ci
+ci: lint test ## CI 上で実行する lint や test のコマンドセットです。

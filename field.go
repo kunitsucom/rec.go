@@ -968,11 +968,10 @@ func Interface(key string, value interface{}) Field {
 
 // Object returns a rec.Field for the JSON Object struct as shown below:
 //
-//   type Example {
-//       Key   string `json:"key"`
-//       Value string `json:"value"`
-//   }
-//
+//	type Example {
+//	    Key   string `json:"key"`
+//	    Value string `json:"value"`
+//	}
 func Object(key string, object interface{}) Field {
 	return Field{
 		t:               typeObject,

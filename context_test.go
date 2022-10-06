@@ -5,7 +5,7 @@ import (
 	"io"
 	"testing"
 
-	"github.com/rec-logger/rec.go"
+	"github.com/kunitsuinc/rec.go"
 )
 
 func TestContextGet(t *testing.T) {

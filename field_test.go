@@ -1702,7 +1702,7 @@ func TestObject(t *testing.T) {
 		buf := bytes.NewBuffer(nil)
 		defaultLogger = Must(New(buf, WithUseTimestampField(false), WithUseCallerField(false))) // nolint: paralleltest
 
-		defaultLogger.Info("test", Object("unsupported", http.Request{Method: "GET"}))
+		defaultLogger.Info("test", Object("unsupported", http.Request{Method: http.MethodGet}))
 
 		expect := `{"severity":"ERROR","message":"rec.Object: json.Marshal: json: unsupported type: func() (io.ReadCloser, error)","error":"json: unsupported type: func() (io.ReadCloser, error)"}` + defaultLineSeparator + `{"severity":"INFO","message":"test","unsupported":null}` + defaultLineSeparator
 		actual := buf.String()

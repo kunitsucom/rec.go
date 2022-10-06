@@ -1,3 +1,3 @@
 // Package rec provides simple and no dependencies JSON logger.
-// https://github.com/rec-logger/rec.go
+// https://github.com/kunitsuinc/rec.go
 package rec
