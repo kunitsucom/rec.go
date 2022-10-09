@@ -1,8 +1,21 @@
+# common
 .DS_Store
 Thumbs.db
+*.swp
+.*.swp
+:*
+*~
+.*~
 
+# codecov
+coverage.txt
+coverage.html
+
+# env
+.env
+
+#
 .local
-
 *.log
 *.prof
 *.test

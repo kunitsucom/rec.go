@@ -248,7 +248,7 @@ func (l *Logger) write(now time.Time, severity Severity, message string, fields 
 	b.Buffer = append(b.Buffer, l.config.LineSeparator...)
 
 	if _, err := l.writer.Write(b.Buffer); err != nil {
-		err = fmt.Errorf("rec.(*Logger).write: writer=%#v: Write: %w", l.writer, err)
+		err = fmt.Errorf("(*rec.Logger).write: writer=%#v: Write: %w", l.writer, err)
 		defaultLogger.write(now, ERROR, err.Error(), Error(err))
 	}
 }

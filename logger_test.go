@@ -448,7 +448,7 @@ func TestLogger_print(t *testing.T) {
 		l := Must(New(noSuchFile))
 		l.write(testTimestampValue, DEFAULT, testLogEntryMessage)
 		// check
-		const expect = `{"timestamp":"2021-01-01T10:23:45.6789+09:00","severity":"ERROR","message":"rec.(*Logger).write: writer=(*os.File)(nil): Write: invalid argument","error":"rec.(*Logger).write: writer=(*os.File)(nil): Write: invalid argument"}` + defaultLineSeparator
+		const expect = `{"timestamp":"2021-01-01T10:23:45.6789+09:00","severity":"ERROR","message":"(*rec.Logger).write: writer=(*os.File)(nil): Write: invalid argument","error":"(*rec.Logger).write: writer=(*os.File)(nil): Write: invalid argument"}` + defaultLineSeparator
 		actual := buf.String()
 		FailIfNotEqual(t, expect, actual)
 	})
