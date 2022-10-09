@@ -104,6 +104,18 @@ func WithUseUppercaseSeverity(use bool) Option {
 	}
 }
 
+// WithDefaultSeverity returns `rec.Option` for setting `config.DefaultSeverity`.
+func WithDefaultSeverity(severity Severity) Option {
+	return Option{
+		name: funcName(),
+		f: func(config *Config) error {
+			config.DefaultSeverity = severity
+
+			return nil
+		},
+	}
+}
+
 // WithUseHostnameField returns `rec.Option` for setting `config.WithUseHostnameField`.
 func WithUseHostnameField(use bool) Option {
 	return withUseHostnameField(use, funcName(), os.Hostname)

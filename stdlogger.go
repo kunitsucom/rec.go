@@ -1,34 +1,25 @@
 package rec
 
 import (
-	"bytes"
 	"log"
 	"os"
-	"time"
 )
 
-type stdLogger struct {
-	severity Severity
-	l        *Logger
-}
+const callerSkipForStdLogger = 2
 
-func (s *stdLogger) Write(b []byte) (int, error) {
-	s.l.write(time.Now(), s.severity, string(bytes.TrimSpace(b)))
-
-	return len(b), nil
+func NewStdLogger(l *Logger, severity Severity) *log.Logger {
+	return log.New(Must(l.Renew(WithDefaultSeverity(severity))).AddCallerSkip(callerSkipForStdLogger), "", 0)
 }
 
 // ReplaceStdLogger replaces the logger in Go standard log package with `*rec_Logger`
 // and returns a function for rollback logger.
 func ReplaceStdLogger(l *Logger, severity Severity) (rollback func()) {
-	const defaultCallerSkip = 2
-
 	backupFlags := log.Flags()
 	backupPrefix := log.Prefix()
 
 	log.SetFlags(0)
 	log.SetPrefix("")
-	log.SetOutput(&stdLogger{severity, l.AddCallerSkip(defaultCallerSkip)})
+	log.SetOutput(Must(l.Renew(WithDefaultSeverity(severity))).AddCallerSkip(callerSkipForStdLogger))
 
 	return func() {
 		log.SetFlags(backupFlags)

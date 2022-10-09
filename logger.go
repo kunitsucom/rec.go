@@ -252,3 +252,13 @@ func (l *Logger) write(now time.Time, severity Severity, message string, fields 
 		defaultLogger.write(now, ERROR, err.Error(), Error(err))
 	}
 }
+
+func (l *Logger) Write(b []byte) (int, error) {
+	if len(b) > 0 && b[len(b)-1] == '\n' {
+		b = b[:len(b)-1]
+	}
+
+	l.write(time.Now(), l.config.DefaultSeverity, string(b))
+
+	return len(b), nil
+}

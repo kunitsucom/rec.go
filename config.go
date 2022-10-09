@@ -29,6 +29,8 @@ type Config struct {
 	SeverityThreshold Severity
 	// [severity] Set true if you want to output severity in uppercase.
 	UseUppercaseSeverity bool
+	// [severity] default severity for io.Writer
+	DefaultSeverity Severity
 
 	// [hostname] Set true if you want to output the hostname field in the log.
 	UseHostnameField bool
@@ -71,6 +73,7 @@ func newConfig(osHostname func() (string, error)) *Config {
 		SeverityFieldKey:     "severity",
 		SeverityThreshold:    DEFAULT,
 		UseUppercaseSeverity: true,
+		DefaultSeverity:      DEFAULT,
 		// "hostname":"...",
 		UseHostnameField:   false,
 		HostnameFieldKey:   "hostname",
