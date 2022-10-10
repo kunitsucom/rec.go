@@ -4,15 +4,19 @@ import (
 	"context"
 )
 
-type contextKeyType struct{}
+type contextKey int
 
-var contextKey *contextKeyType // nolint: gochecknoglobals
+const (
+	_ contextKey = iota
+	key
+)
 
 // ContextLogger returns *rec.Logger that the context has.
 // If the context does not have *rec.Logger, ContextLogger returns default logger.
 func ContextLogger(ctx context.Context) *Logger {
-	l, ok := ctx.Value(contextKey).(*Logger)
+	l, ok := ctx.Value(key).(*Logger)
 	if !ok || l == nil {
+		defaultLogger.Error("rec: ContextLogger returns defaultLogger because ctx does not contain *rec.Logger")
 		return defaultLogger
 	}
 
@@ -21,5 +25,5 @@ func ContextLogger(ctx context.Context) *Logger {
 
 // ContextWithLogger returns context.Context that has *rec.Logger.
 func ContextWithLogger(parent context.Context, l *Logger) context.Context {
-	return context.WithValue(parent, contextKey, l)
+	return context.WithValue(parent, key, l)
 }
