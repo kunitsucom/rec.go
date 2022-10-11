@@ -1436,6 +1436,17 @@ func TestStrings(t *testing.T) {
 
 		FailIfNotBytesEqual(t, expect, actual)
 	})
+
+	t.Run("success([]string{})", func(t *testing.T) {
+		t.Parallel()
+
+		bs := make([]byte, 0, 1024)
+
+		expect := []byte(`"test":[]`)
+		actual := appendJSONField(bs, Strings("test", []string{}))
+
+		FailIfNotBytesEqual(t, expect, actual)
+	})
 }
 
 func TestStringer(t *testing.T) {
@@ -1589,6 +1600,17 @@ func TestErrorsWithKey(t *testing.T) {
 
 		expect := []byte(`"test":null`)
 		actual := appendJSONField(bs, ErrorsWithKey("test", nil))
+
+		FailIfNotBytesEqual(t, expect, actual)
+	})
+
+	t.Run("success([]error{})", func(t *testing.T) {
+		t.Parallel()
+
+		bs := make([]byte, 0, 1024)
+
+		expect := []byte(`"test":[]`)
+		actual := appendJSONField(bs, ErrorsWithKey("test", []error{}))
 
 		FailIfNotBytesEqual(t, expect, actual)
 	})

@@ -403,6 +403,10 @@ func appendFieldValue(dst []byte, f Field, jsonMarshalFn func(interface{}) ([]by
 				dst[len(dst)-1] = ']'
 			}
 
+			if dst[len(dst)-1] != ']' {
+				dst = append(dst, ']')
+			}
+
 			break
 		}
 
@@ -448,6 +452,10 @@ func appendFieldValue(dst []byte, f Field, jsonMarshalFn func(interface{}) ([]by
 
 			if dst[len(dst)-1] == ',' {
 				dst[len(dst)-1] = ']'
+			}
+
+			if dst[len(dst)-1] != ']' {
+				dst = append(dst, ']')
 			}
 
 			break
