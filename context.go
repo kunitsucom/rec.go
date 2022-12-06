@@ -16,7 +16,7 @@ const (
 func ContextLogger(ctx context.Context) *Logger {
 	l, ok := ctx.Value(key).(*Logger)
 	if !ok || l == nil {
-		defaultLogger.Error("rec: ContextLogger returns defaultLogger because ctx does not contain *rec.Logger")
+		defaultLogger.AddCallerSkip(1).Error("rec: ContextLogger returns defaultLogger because ctx does not contain *rec.Logger")
 		return defaultLogger
 	}
 
